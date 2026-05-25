@@ -5,6 +5,10 @@ integration project from 2002-2003. It contains the source code, initial
 condition data, and Mathematica notebooks used to integrate and inspect planar
 four-body orbits.
 
+In short, this is a legacy Visual C++ / Fortran four-body gravitational
+integrator using Everhart's RA15 numerical method, orbital simulation outputs,
+and HPC-era scientific computing workflows.
+
 The original code is preserved as a historical project. It has not yet been
 modernized for contemporary compilers.
 
