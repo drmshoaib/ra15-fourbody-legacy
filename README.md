@@ -24,6 +24,30 @@ v_i = (vx_i, vy_i)
 
 and mass `m_i`. The source uses gravitational units with `G = 1`.
 
+The C++ and Fortran routines store the state as flat arrays:
+
+```text
+X = [x1, y1, x2, y2, x3, y3, x4, y4]
+V = [vx1, vy1, vx2, vy2, vx3, vy3, vx4, vy4]
+M = [m1, m2, m3, m4]
+```
+
+The Fortran force routine computes each pair distance through
+
+```math
+\rho_{ij} =
+\sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}
+```
+
+and then reuses
+
+```math
+\rho_{ij}^{-3}
+```
+
+in the acceleration sums. There is no softening parameter, so a very small
+pair separation directly produces a very large acceleration.
+
 For each body,
 
 ```math
@@ -72,6 +96,28 @@ U =
 \frac{m_i m_j}{\lVert r_i-r_j \rVert}.
 ```
 
+In other words, `U` is stored as the positive pairwise attraction sum, and the
+reported total energy is `K - U`.
+
+The code does not print other invariants, but they can be reconstructed from
+the output columns. For example:
+
+```math
+P = \sum_{i=1}^4 m_i v_i
+```
+
+is the total linear momentum,
+
+```math
+R_{cm} = \frac{\sum_{i=1}^4 m_i r_i}{\sum_{i=1}^4 m_i}
+```
+
+is the centre of mass, and the scalar planar angular momentum is
+
+```math
+L_z = \sum_{i=1}^4 m_i (x_i v_{y,i} - y_i v_{x,i}).
+```
+
 ## Numerical method
 
 The integration method is Everhart's RA15 Radau integrator, implemented in
@@ -104,6 +150,16 @@ with these parameters:
 
 `X` and `V` are updated in place. One call to `fnMy4BodyIntegrator` advances the
 system by the time interval supplied as `T`.
+
+For RA15, the problem is passed as a second-order system:
+
+```math
+X'' = F(X,t;M),
+```
+
+rather than converting it to a first-order 16-variable system. The velocity
+array is still supplied because RA15 updates both `X` and `V` at the end of
+each sequence.
 
 ## Repository layout
 
@@ -147,11 +203,17 @@ file. The commented code suggests an earlier intent to set
 
 `FourBody/FourBody.cpp` writes `result1.txt`.
 
+The file has no header row. Each line is one sampled integration state.
+
 It currently writes every step because the output guard is:
 
 ```cpp
 if(fmod(i,1)==0)
 ```
+
+With the current settings, this means up to `1,000,000` lines. At 18 columns
+per line and 20 decimal places per value, a full run can create a large text
+file.
 
 The output line has 18 whitespace-separated columns:
 
@@ -163,6 +225,16 @@ The output line has 18 whitespace-separated columns:
 | 18 | energy `E = K - U` |
 
 Each value is printed with `%.20f` precision.
+
+A typical row has the logical form:
+
+```text
+time x1 y1 x2 y2 x3 y3 x4 y4 vx1 vy1 vx2 vy2 vx3 vy3 vx4 vy4 energy
+```
+
+The console output does not include accelerations, pair distances, centre of
+mass, angular momentum, or an explicit step index. Those quantities need to be
+computed from the printed positions, velocities, and masses.
 
 The console runner computes the initial energy `E0` and stops early if:
 
@@ -190,6 +262,10 @@ line per step with 9 whitespace-separated columns:
 | --- | --- |
 | 1 | `time` |
 | 2-9 | `x1 y1 x2 y2 x3 y3 x4 y4` |
+
+Unlike `result1.txt`, the GUI output does not print velocities or energy. It is
+therefore mainly useful for orbit plotting unless velocity diagnostics are
+added or reconstructed from another source.
 
 The GUI also checks energy conservation, but with a looser threshold:
 
@@ -233,11 +309,7 @@ Build order:
 2. Build `FourBody` or `WinForInitCond`.
 3. Put `4BodyIntegrator.dll` beside the executable before running.
 
-The clean repo keeps the old project files, but the absolute import-library
-paths have been changed to relative paths:
 
-- `..\4BodyIntegrator\Debug\4BodyIntegrator.lib`
-- `..\4BodyIntegrator\Release\4BodyIntegrator.lib`
 
 These project files have not been modernized or verified with a contemporary
 compiler.
@@ -250,12 +322,3 @@ output frequency before exploratory runs.
 
 Near-collision states can make the force terms large because the denominator is
 `||r_i-r_j||^3`; the legacy code does not include collision regularization.
-
-## Repository hygiene
-
-Old executables, DLLs, import libraries, debugger databases, precompiled
-headers, object files, and Developer Studio user/cache files were intentionally
-left out. See `docs/cleanup-notes.md` for the cleanup rationale.
-
-No license file is included yet. Add one before publishing publicly if you want
-to grant reuse rights.
