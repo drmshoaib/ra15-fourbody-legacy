@@ -1,0 +1,31 @@
+# Visual C++ / Developer Studio generated files
+Debug/
+Release/
+*.obj
+*.pdb
+*.PDB
+*.pch
+*.idb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+*.res
+*.ncb
+*.opt
+*.plg
+*.aps
+
+# Generated integration output
+result.txt
+result1.txt
+result*.txt
+
+# Editor / OS noise
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+.DS_Store

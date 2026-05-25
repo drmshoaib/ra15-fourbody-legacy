@@ -1,0 +1,7 @@
+*.xls binary
+*.ico binary
+*.nb text
+*.for text
+*.dsp text
+*.dsw text
+*.rc text

@@ -1,0 +1,263 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About WinForInitCond"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "WinForInitCond Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_WINFORINITCOND_DIALOG DIALOGEX 0, 0, 320, 321
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "WinForInitCond"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,165,214,50,14
+    LTEXT           "x1=",IDC_STATIC,20,19,12,8
+    LTEXT           "y1=",IDC_STATIC,18,42,12,8
+    LTEXT           "x2=",IDC_STATIC,18,61,12,8
+    LTEXT           "y2=",IDC_STATIC,19,78,12,8
+    LTEXT           "x3=",IDC_STATIC,17,94,12,8
+    LTEXT           "y3=",IDC_STATIC,17,109,12,8
+    LTEXT           "x4=",IDC_STATIC,17,125,12,8
+    LTEXT           "y4=",IDC_STATIC,17,142,12,8
+    LTEXT           "vx1=",IDC_STATIC,18,160,16,8
+    LTEXT           "vy1=",IDC_STATIC,19,174,16,8
+    LTEXT           "vx2=",IDC_STATIC,17,194,16,8
+    LTEXT           "vy2=",IDC_STATIC,19,208,16,8
+    LTEXT           "vx3=",IDC_STATIC,21,222,16,8
+    LTEXT           "vy3=",IDC_STATIC,20,240,16,8
+    LTEXT           "vx4=",IDC_STATIC,19,255,16,8
+    LTEXT           "vy4=",IDC_STATIC,18,274,16,8
+    EDITTEXT        IDC_EDIT1,37,17,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,37,39,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,37,58,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,37,76,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,37,93,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT6,37,109,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,37,125,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,37,141,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,37,157,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT10,37,174,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT11,37,189,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT12,37,205,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT13,37,221,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT14,37,237,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT15,37,254,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT16,37,272,40,14,ES_AUTOHSCROLL
+    LTEXT           "m1=",IDC_STATIC,118,19,14,8
+    LTEXT           "m2=",IDC_STATIC,118,32,14,8
+    LTEXT           "m3=",IDC_STATIC,118,50,14,8
+    LTEXT           "m4=",IDC_STATIC,118,65,14,8
+    EDITTEXT        IDC_EDIT18,141,17,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT19,141,33,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT20,143,51,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT21,144,67,40,14,ES_AUTOHSCROLL
+    LTEXT           "IntegrationTime",IDC_STATIC,111,108,50,8
+    EDITTEXT        IDC_TIME,177,104,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Integrate",IDC_BUTTON1,125,155,132,46
+    EDITTEXT        IDC_STEPSIZE,177,125,40,14,ES_AUTOHSCROLL
+    LTEXT           "Stepsize",IDC_STATIC,115,128,28,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,
+                    125,264,146,21
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "WinForInitCond MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "WinForInitCond\0"
+            VALUE "LegalCopyright", "Copyright (C) 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "WinForInitCond.EXE\0"
+            VALUE "ProductName", "WinForInitCond Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_WINFORINITCOND_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 314
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About WinForInitCond..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\WinForInitCond.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\WinForInitCond.ico"
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\WinForInitCond.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
